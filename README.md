@@ -2,8 +2,11 @@
 > This note record and share the final report of Programming course in 【110下】 about analysing some sorting algorithms' efficiency
 ## Requirements:
 Insertion Sort
+
 Selection Sort
+
 Bubble Sort
+
 Quick Sort (Recursion version)
 * Please study these four implementation methods and write one or four or more programs to test the four implementation methods.
 * Please compare the execution efficiency(time) according to the test results and write a test report.
@@ -18,31 +21,46 @@ Taking n==5 as an example, {1, 2, 3, 4, 5} and {5, 4, 3, 2, 1} and {3, 2, 5, 1, 
 
 Note: The sorted data cannot be used by other methods or by yourself. (refer to the 
 previous point)
+
 E.g:
+
 ⋯ // Generate test data array[arraySize]
+
 sortA(array, arraySize); // After execution, the array is sorted, the next method
+
 sortB(array, arraySize); // The test data is regarded as different, this is not acceptable
+
 ⋯⋯
 
 **4. Some research reports have shown that the execution time of the above four methods have advantages and disadvantages for different n values. No one is absolutely the best. Please explain it according to the test results (there is no 100% standard answer).**
 
 Suggestions (just suggestions, please design your own) n = 5, 8, 10, 12, 15, 18, 20, 22, 25, 28, 30, 35, 40, 45, 50
+
 Note 1: The following wording is redundant on the subject of this research and wastes time to get the same result. And it doesn't make sense to test n == 1 vs 2.
+
 for(n = 1; n < 51; n++) {}
+
 NOTE 2 The values of n listed above can be generated using the following fragments.
+
 const int num[15] = {5, 8, 10, 12, 15, 18, 20, 22, 25, 28, 30, 35, 40, 45, 50};
+
 ⋯⋯
+
 for(int i = 0; i < 15; i++)
+
 {
+
  n = num[i];
+ 
 ⋯⋯
+
 }
 
 **5. How to avoid the situation of positive value + positive value = negative value when the program is executed.**
 
 In order to find the average, it will be accumulated first and then averaged. When accumulating, pay attention to the problem of "positive number + positive number = negative number". Remember the last assignment? 1134903170 + 1836311903 - 1 = -1323752224. If the number of tests is large and the n value is large, the accumulated value may change as follows:
-positive, positive,… , negative, negative, ... , positive, positive,...,...
-The first question, the result is incorrect.
+
+positive, positive,… , negative, negative, ... , positive, positive,...,...The first question, the result is incorrect.
 The second question, if the final accumulated value is negative, can the test report tell you that the execution time is negative? Will be a joke.
 So, it may be necessary to strike a balance between the accuracy (accumulated value) and the tested time value.
 (When the accumulated value becomes negative, break?).
